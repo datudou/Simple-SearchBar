@@ -1,7 +1,7 @@
 import {List,Map} from 'immutable';
 import {expect} from 'chai';
 import {getCards,filterByStarName} from '../src/core';
-import {cardInitData} from './test_data'
+import {initialState} from './test_data'
 
 describe('application logic', ()=> {
     describe("setCards", ()=> {
@@ -12,22 +12,21 @@ describe('application logic', ()=> {
     describe('filter by star name', ()=> {
         "use strict";
         it('search cards by star name', ()=> {
-            const nextState = filterByStarName(cardInitData, "Kobe");
+            const nextState = filterByStarName(initialState, "Kobe");
             console.log(nextState);
+            console.log("----------------------->");
             expect(nextState).to.equal(
                 List.of(Map({
-                        starName: "Kobe",
-                        cardName: "Kobe Sin",
-                        endPrice: "700.00",
-                        endDate: "2015.10.12",
-                        seriesName: "Nori"
+                        category: 'Sporting Goods',
+                        price: '$49.99',
+                        ended: true,
+                        name: 'Kobe'
                     }),
                     Map({
-                        starName: "Kobe",
-                        cardName: "Kobe Siaa",
-                        endPrice:"222.00",
-                        endDate: "2015.10.13",
-                        seriesName: "Nori"
+                        category:'Sporting Goods',
+                        price: '$29.99',
+                        ended: false,
+                        name: 'Kobe'
                     })
                 ));
         });

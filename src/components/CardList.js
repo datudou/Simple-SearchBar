@@ -3,21 +3,20 @@
  */
 
 import React,{Component} from 'react';
-import CardItem from './CardItem'
+import CardItem from './CardItem';
+import {connect} from 'react-redux';
 
-class CardList extends Component{
-    //constructor(props) {
-    //    super(props);
-    //}
+class CardList extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-    render(){
-        console.log(this.props.cards);
+    render() {
         let cardItems = [];
-        this.props.cards.forEach(function(card){
-            cardItems.push(<CardItem card={card} key={card.name}/>);
-        }.bind(this));
-
-        return(
+        this.props.cards.forEach(card =>
+                cardItems.push(<CardItem card={card} key={card.get('name')}/>)
+        );
+        return (
             <table>
                 <thead>
                 <tr>
@@ -28,9 +27,8 @@ class CardList extends Component{
                 <tbody>{cardItems}</tbody>
             </table>
         );
-
     }
-
 }
+
 
 export default CardList;

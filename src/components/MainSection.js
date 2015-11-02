@@ -2,44 +2,56 @@
  * Created by qianyiwang on 15/10/19.
  */
 import React,{Component} from 'react';
-import SearchBar from './SearchBar'
-import CardList from './CardList'
+import SearchBar from './SearchBar';
+import CardList from './CardList';
+import {connect} from  'react-redux';
+import * as filterActions from '../actions/actions';
+import { bindActionCreators } from 'redux';
+import {List,Map} from 'immutable';
 
 
 class MainSection extends Component {
     constructor(props) {
         super(props);
-        this.cards = [
-            {category: 'Sporting Goods', price: '$49.99', ended: true, name: 'Kobe'},
-            {category: 'Sporting Goods', price: '$9.99', ended: true, name: 'Steven Curry'},
-            {category: 'Sporting Goods', price: '$29.99', ended: false, name: 'Kobe'},
-            {category: 'Electronics', price: '$99.99', ended: true, name: 'Jordan'},
-            {category: 'Electronics', price: '$399.99', ended: false, name: 'Lin'},
-            {category: 'Electronics', price: '$199.99', ended: true, name: 'YaoMing'}
-        ];
+    }
 
-        this.state = {
-            filterText: "",
-            inEndedOnly: false
-        }
+    componentWillMount() {
     }
 
 
+
     render() {
+        console.log("####");
+        console.log(this.props.cards);
+        console.log("####");
         return (
             <div>
                 <SearchBar
-                    filterText={this.state.filterText}
-                    inEndedOnly={this.state.inEndedOnly}
+                    filterText={null}
+                    actions={this.props.actions}
+                    onChange={this.onChange}
                     />
                 <CardList
-                    cards={this.cards}
-                    filterText={this.state.filterText}
-                    inEndedOnly={this.state.inEndedOnly}
+                    cards={this.props.cards}
                     />
             </div>
         )
     }
 }
 
-export default MainSection;
+function mapStateToProps(state){
+    return {
+        cards: state.get('cards')
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        actions:bindActionCreators(filterActions,dispatch)
+    };
+}
+
+var MainSectionContainer = connect(mapStateToProps,mapDispatchToProps)(MainSection);
+
+
+export default MainSectionContainer;

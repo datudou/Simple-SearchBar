@@ -4,19 +4,27 @@
 
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import MainSection from './components/MainSection';
+import MainSectionContainer from './components/MainSection';
+import { Provider } from 'react-redux';
+import * as actions from './actions/actions';
+import {createStore} from 'redux';
+import reducer from './reducers/reducer';
+import configureStore from './stores/store';
+
+const store = configureStore();
 
 class App extends Component {
-
-
     render() {
         return (
-            <MainSection/>
+            <Provider store={store}>
+                <MainSectionContainer/>
+            </Provider>
         );
     }
 }
 
-ReactDOM.render(<App/>,document.getElementById('root'));
+
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 
 

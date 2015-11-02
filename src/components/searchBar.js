@@ -2,14 +2,33 @@
  * Created by qianyiwang on 15/10/19.
  */
 
-import React,{Component} from 'react';
+import React,{Component,PropTypes} from 'react';
 
 
 class SearchBar extends Component {
-   render() {
+    constructor(props){
+        super(props);
+    }
+
+    handleChange(e){
+        let filterText = e.target.value.toLowerCase().trim();
+        console.log(filterText);
+        this.props.actions.filterByStarName(filterText);
+    }
+
+
+    render() {
         return (
             <form>
-                <input type="text" placeholder="Search ..." value={this.props.filterText}/>
+                <input
+                    type="text"
+                    placeholder="Search ..."
+                    ref="filterTextInput"
+                    value={this.props.filterText}
+                    onChange={this.handleChange.bind(this)}
+                    onKeyDown={this.onKeyDown}
+                    />
+
                 <p>
                     <input type="checkbox"/>
                     {' '}
@@ -19,7 +38,6 @@ class SearchBar extends Component {
         );
     }
 }
-
 export default SearchBar;
 
 
