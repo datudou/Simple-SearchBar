@@ -11,11 +11,8 @@ class CardList extends Component {
         super(props);
     }
 
-    render() {
-        let cardItems = [];
-        this.props.cards.forEach(card =>
-                cardItems.push(<CardItem card={card} key={card.get('name')}/>)
-        );
+
+    static renderTable(cardItems) {
         return (
             <table>
                 <thead>
@@ -26,7 +23,20 @@ class CardList extends Component {
                 </thead>
                 <tbody>{cardItems}</tbody>
             </table>
-        );
+
+        )
+
+    }
+
+    render() {
+        let cardItems = [];
+        if (!this.props.cards)
+            return CardList.renderTable(cardItems);
+        else
+            this.props.cards.forEach(card =>
+                cardItems.push(<CardItem card={card} key={card.get('cardName')}/>)
+            );
+        return CardList.renderTable(cardItems);
     }
 }
 

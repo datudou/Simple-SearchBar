@@ -13,17 +13,15 @@ import {List,Map} from 'immutable';
 class MainSection extends Component {
     constructor(props) {
         super(props);
+        //this.props.actions.fetchCardData();
     }
 
     componentWillMount() {
+        this.props.actions.fetchCardData();
     }
 
 
-
     render() {
-        console.log("####");
-        console.log(this.props.cards);
-        console.log("####");
         return (
             <div>
                 <SearchBar
@@ -39,19 +37,20 @@ class MainSection extends Component {
     }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
+    console.log(state.get('cards'));
     return {
         cards: state.get('cards')
     }
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
-        actions:bindActionCreators(filterActions,dispatch)
+        actions: bindActionCreators(filterActions, dispatch)
     };
 }
 
-var MainSectionContainer = connect(mapStateToProps,mapDispatchToProps)(MainSection);
+var MainSectionContainer = connect(mapStateToProps, mapDispatchToProps)(MainSection);
 
 
 export default MainSectionContainer;

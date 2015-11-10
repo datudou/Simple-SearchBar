@@ -23,11 +23,14 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "immutable": "^3.7.5",
+    "isomorphic-fetch": "^2.2.0",
     "object-assign": "^4.0.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^4.0.0",
     "redux": "^3.0.4",
+    "redux-logger": "^2.0.4",
+    "redux-thunk": "^1.0.0",
     "underscore": "^1.8.3"
   }
 }

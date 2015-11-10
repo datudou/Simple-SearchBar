@@ -16,19 +16,21 @@ describe('application logic', ()=> {
             console.log(nextState);
             console.log("----------------------->");
             expect(nextState).to.equal(
-                List.of(Map({
-                        category: 'Sporting Goods',
-                        price: '$49.99',
-                        ended: true,
-                        name: 'Kobe'
-                    }),
-                    Map({
-                        category:'Sporting Goods',
-                        price: '$29.99',
-                        ended: false,
-                        name: 'Kobe'
-                    })
-                ));
+                Map({
+                    cards: List.of(Map({
+                            category: 'Sporting Goods',
+                            price: '$49.99',
+                            ended: true,
+                            name: 'Kobe'
+                        }),
+                        Map({
+                            category: 'Sporting Goods',
+                            price: '$29.99',
+                            ended: false,
+                            name: 'Kobe'
+                        }))
+                }))
+
         });
     });
 

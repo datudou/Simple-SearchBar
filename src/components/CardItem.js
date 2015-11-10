@@ -5,15 +5,15 @@
 import React,{Component} from 'react';
 class CardItem extends Component {
     render() {
-        let name = this.props.card.get('ended') ?
-            this.props.card.get('name') :
+        let name = this.props.card.get('endPrice') ?
+            this.props.card.get('cardName') :
             <span style={{color:"red"}}>
-                {this.props.card.get('name')}
+                {this.props.card.get('cardName')}
                 </span>;
         return (
             <tr>
                 <td>{name}</td>
-                <td>{this.props.card.get('price')}</td>
+                <td>{this.props.card.get('endPrice')}</td>
             </tr>
         );
 

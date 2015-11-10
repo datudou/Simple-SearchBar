@@ -11,20 +11,20 @@ describe('reducer', ()=> {
         const action = {type: "FILTER_BY_STAR_NAME",starName:"Kobe"};
         const nextState = reducer(initialState, action);
         expect(nextState).to.equal(
-            List.of(Map({
-                    category: 'Sporting Goods',
-                    price: '$49.99',
-                    ended: true,
-                    name: 'Kobe'
-                }),
-                Map({
-                    category:'Sporting Goods',
-                    price: '$29.99',
-                    ended: false,
-                    name: 'Kobe'
-                })
-            ));
-
+            Map({
+                cards: List.of(Map({
+                        category: 'Sporting Goods',
+                        price: '$49.99',
+                        ended: true,
+                        name: 'Kobe'
+                    }),
+                    Map({
+                        category: 'Sporting Goods',
+                        price: '$29.99',
+                        ended: false,
+                        name: 'Kobe'
+                    }))
+            }))
     });
 
 });
