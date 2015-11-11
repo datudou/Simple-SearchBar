@@ -8,7 +8,7 @@ import {connect} from  'react-redux';
 import * as filterActions from '../actions/actions';
 import { bindActionCreators } from 'redux';
 import {List,Map} from 'immutable';
-
+import {Button} from 'react-bootstrap';
 
 class MainSection extends Component {
     constructor(props) {

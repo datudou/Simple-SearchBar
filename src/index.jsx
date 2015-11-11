@@ -10,7 +10,7 @@ import * as actions from './actions/actions';
 import {createStore} from 'redux';
 import reducer from './reducers/reducer';
 import configureStore from './stores/store';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 const store = configureStore();
 
 class App extends Component {

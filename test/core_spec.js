@@ -9,30 +9,28 @@ describe('application logic', ()=> {
         });
     });
 
-    describe('filter by star name', ()=> {
-        "use strict";
-        it('search cards by star name', ()=> {
-            const nextState = filterByStarName(initialState, "Kobe");
-            console.log(nextState);
-            console.log("----------------------->");
-            expect(nextState).to.equal(
-                Map({
-                    cards: List.of(Map({
-                            category: 'Sporting Goods',
-                            price: '$49.99',
-                            ended: true,
-                            name: 'Kobe'
-                        }),
-                        Map({
-                            category: 'Sporting Goods',
-                            price: '$29.99',
-                            ended: false,
-                            name: 'Kobe'
-                        }))
-                }))
+    //describe('filter by star name', ()=> {
+    //    "use strict";
+    //    it('search cards by star name', ()=> {
+    //        const nextState = filterByStarName(initialState, "Kobe");
+    //        expect(nextState).to.equal(
+    //            Map({
+    //                cards: List.of(Map({
+    //                        category: 'Sporting Goods',
+    //                        price: '$49.99',
+    //                        ended: true,
+    //                        name: 'Kobe'
+    //                    }),
+    //                    Map({
+    //                        category: 'Sporting Goods',
+    //                        price: '$29.99',
+    //                        ended: false,
+    //                        name: 'Kobe'
+    //                    }))
+    //            }))
 
-        });
-    });
+        //});
+    //});
 
     describe('filter by series', ()=> {
         "use strict";
