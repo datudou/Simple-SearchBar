@@ -8,37 +8,52 @@ import {connect} from  'react-redux';
 import * as filterActions from '../actions/actions';
 import { bindActionCreators } from 'redux';
 import {List,Map} from 'immutable';
-import {Button} from 'react-bootstrap';
+import {Grid,Col,Row} from 'react-bootstrap';
 
 class MainSection extends Component {
     constructor(props) {
         super(props);
-        //this.props.actions.fetchCardData();
     }
 
     componentWillMount() {
         this.props.actions.fetchCardData();
     }
 
+    onChange(filterText){
+        this.filterText = filterText;
+    }
+
 
     render() {
         return (
             <div>
-                <SearchBar
-                    filterText={null}
-                    actions={this.props.actions}
-                    onChange={this.onChange}
-                    />
-                <CardList
-                    cards={this.props.cards}
-                    />
+                <Grid>
+                    <Row className="show-grid">
+                        <Col xs={6} xsOffset={3}>
+                            <SearchBar
+                                filterText={null}
+                                actions={this.props.actions}
+                                onChange={this.onChange.bind(this)}
+                            />
+                        </Col>
+                    </Row>
+                </Grid>
+                <Grid>
+                    <Row className="show-grid">
+                        <Col xs={6} xsOffset={3}>
+                            <CardList
+                                cards={this.props.cards}
+                                filterText={this.filterText}
+                            />
+                        </Col>
+                    </Row>
+                </Grid>
             </div>
         )
     }
 }
 
 function mapStateToProps(state) {
-    console.log(state.get('cards'));
     return {
         cards: state.get('cards')
     }

@@ -17,7 +17,7 @@ class CardList extends Component {
 
     static renderTable(cardItems) {
         return (
-            <Table>
+            <Table striped hover responsive>
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -37,7 +37,9 @@ class CardList extends Component {
             return CardList.renderTable(cardItems);
         else
             this.props.cards.forEach(card =>
-                cardItems.push(<CardItem card={card} key={card.get('cardName')}/>)
+                cardItems.push(<CardItem card={card}
+                                         key={card.get('cardName')}
+                                         filterText = {this.props.filterText}/>)
             );
         return CardList.renderTable(cardItems);
     }

@@ -18,7 +18,8 @@ export default function reducer(state = initialState, action = "") {
     switch (action.type) {
         case "FILTER_BY_STAR_NAME":
             state = Map({
-                cards: List(action.allCards.map(x=>Map(x)))
+                cards: List(action.allCards.map(x=>Map(x))),
+                searchIndex:""
             });
             return filterByStarName(state,action.starName);
         case "SET_STATE":

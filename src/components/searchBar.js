@@ -3,24 +3,25 @@
  */
 
 import React,{Component,PropTypes} from 'react';
-
+import {Input} from 'react-bootstrap';
 
 class SearchBar extends Component {
     constructor(props){
         super(props);
+
     }
 
     handleChange(e){
         let filterText = e.target.value.toLowerCase().trim();
-        console.log(filterText);
-        this.props.actions.filterByStarName(filterText);
+        this.props.onChange(filterText);
+        this.props.actions.filterInAllCards(filterText);
     }
 
 
     render() {
         return (
             <form>
-                <input
+                <Input
                     type="text"
                     placeholder="Search ..."
                     ref="filterTextInput"
@@ -28,12 +29,6 @@ class SearchBar extends Component {
                     onChange={this.handleChange.bind(this)}
                     onKeyDown={this.onKeyDown}
                     />
-
-                <p>
-                    <input type="checkbox"/>
-                    {' '}
-                    Only show products in stocks
-                </p>
             </form>
         );
     }

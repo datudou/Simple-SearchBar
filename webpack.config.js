@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 module.exports = {
     entry: [
         './src/index.jsx'
@@ -10,10 +11,6 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'react-hot!babel'
-            },
-            {
-                test: /\.css$/,
-                loader: "style!css"
             },
             { test: /\.css$/, loader: 'style-loader!css-loader' },
             { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },

@@ -1,12 +1,19 @@
 import {List,Map} from 'immutable';
 import {expect} from 'chai';
-import {getCards,filterByStarName} from '../src/core';
+import {getCards,filterByStarName,kmp} from '../src/core';
 import {initialState} from './test_data'
 
 describe('application logic', ()=> {
     describe("setCards", ()=> {
         it('add cards to the state', ()=> {
         });
+    });
+
+    describe("test kmp filter", ()=> {
+        console.log(kmp("wang lemons","l"));
+        console.log(kmp("wang lemons,le","le"));
+        console.log(kmp("StevenCurry","Curry"));
+        console.log(kmp("StevenCurry","QQ"));
     });
 
     //describe('filter by star name', ()=> {
@@ -29,7 +36,7 @@ describe('application logic', ()=> {
     //                    }))
     //            }))
 
-        //});
+    //});
     //});
 
     describe('filter by series', ()=> {
