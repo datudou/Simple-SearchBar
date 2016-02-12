@@ -5,7 +5,6 @@ import React,{Component} from 'react';
 import SearchBar from './SearchBar';
 import CardList from './CardList';
 import {connect} from  'react-redux';
-import * as filterActions from '../actions/actions';
 import { bindActionCreators } from 'redux';
 import {List,Map} from 'immutable';
 import {Grid,Col,Row} from 'react-bootstrap';
@@ -21,6 +20,7 @@ class MainSection extends Component {
 
     onChange(filterText){
         this.filterText = filterText;
+        this.props.actions.filterInAllCards(filterText);
     }
 
 
@@ -53,19 +53,7 @@ class MainSection extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        cards: state.get('cards')
-    }
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(filterActions, dispatch)
-    };
-}
-
-var MainSectionContainer = connect(mapStateToProps, mapDispatchToProps)(MainSection);
 
 
-export default MainSectionContainer;
+
+export default MainSection;

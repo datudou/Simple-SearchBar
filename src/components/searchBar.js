@@ -14,9 +14,8 @@ class SearchBar extends Component {
     handleChange(e){
         let filterText = e.target.value.toLowerCase().trim();
         this.props.onChange(filterText);
-        this.props.actions.filterInAllCards(filterText);
-    }
 
+    }
 
     render() {
         return (

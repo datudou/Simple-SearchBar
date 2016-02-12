@@ -12,18 +12,9 @@ export function getCards() {
 export function filterByStarName(state, starName = "") {
     return Map({
         cards: state.get('cards').filter((card)=>
-            card.get('cardName').match(new RegExp(starName.replace(/\W\s/g, ''), 'i'))),
+            card.get('cardName').match(new RegExp(starName.replace(/\W\s/g, ''), 'i')))
     })
 }
-
-//function highLightItems(card,starName){
-//    let offset = kmp(card.get('cardName'),starName);
-//    let result =[];
-//    if(offset != -1){
-//        result.push(card.set("hightLigthItem":));
-//    }
-//}
-
 
 export function kmp(sourceStr, subStr){
     var partMatch = kmpGetPartMatchLen(subStr);

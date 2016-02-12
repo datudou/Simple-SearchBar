@@ -4,41 +4,40 @@
 
 import React,{Component} from 'react';
 class CardItem extends Component {
+
+    renderImage(){
+        
+
+    }
+
+    renderMetaData(){
+
+    }
+
     render() {
-        //let name = this.props.card.get('endPrice') ?
-        //    this.props.card.get('cardName') :
-        //    <span style={{color:"red"}}>
-        //        {this.props.card.get('cardName')}
-        //        </span>;
-
-
         const {filterText,card} = this.props;
-        let name =
-            <td>
-                {card.get('cardName')}
-            </td>;
+        let name = <td>{card.get('cardName')}</td>;
         if (filterText) {
             let pattern = new RegExp(filterText.replace(/\W\s/g, ''), 'i');
             let match = pattern.exec(card.get('cardName'));
-            name = match ? <td>
-                {card.get('cardName').slice(0, match.index)}
+            name = match ?
+                <td>
+                    {card.get('cardName').slice(0, match.index)}
                     <span style={{color:"red"}}>
-                    {card.get('cardName').slice(match.index, match.index + filterText.length)}
+                        {card.get('cardName').slice(match.index, match.index + filterText.length)}
                     </span>
-                {card.get('cardName').slice(match.index + filterText.length, -1)}
-            </td> :
+                    {card.get('cardName').slice(match.index + filterText.length, -1)}
+                </td>:
                 <td>
                     {card.get('cardName')}
                 </td>;
         }
-
         return (
             <tr>
                 {name}
                 <td>{card.get('endPrice')}</td>
             </tr>
         );
-
     }
 }
 
