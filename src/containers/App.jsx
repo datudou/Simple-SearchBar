@@ -12,7 +12,10 @@ class App extends Component {
 
         return (
             <div>
-                <MyTable></MyTable>
+              <MainSection
+                actions={actions}
+                cards={cards}
+              />
             </div>
         )
 

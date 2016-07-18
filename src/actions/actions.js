@@ -46,8 +46,9 @@ export function fetchCardData() {
                 'Content-Type': 'application/json'
             }
         }).then(response=>response.json())
-            .then(json =>
-                dispatch(receiveCardData(json.results)))
+            .then(json => {
+              console.log(json.results)
+              dispatch(receiveCardData(json.results))})
     }
 }
 

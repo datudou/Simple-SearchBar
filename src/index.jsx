@@ -2,7 +2,6 @@
  * Created by qianyiwang on 15/10/19.
  */
 
-import 'babel-core/polyfill'
 import React,{Component} from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -18,6 +17,7 @@ render(
     </Provider>,
     document.getElementById('root')
 );
+
 
 
 
