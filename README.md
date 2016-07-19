@@ -1,8 +1,14 @@
 # Purpose
 A demo project for practise.
 
-# Reac version
-* react -> 15.2.1
+# Dependency version
+     react -> 15.2.1
+     react-redux -> 4.0.0
+     redux -> 3.0.4
 
 # TODO
-Fix 
+* Add unit test
+* Add Mock data
+
+
+
