@@ -7,7 +7,7 @@ A demo project for practise.
      redux -> 3.0.4
 
 # TODO
-* Add Backend server [user express]
+* Add Backend server [use express.js]
 * Add unit test
 * Add Mock data
 * Add flow 
