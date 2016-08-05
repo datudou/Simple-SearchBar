@@ -2,21 +2,21 @@
  * Created by qianyiwang on 15/10/19.
  */
 
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import CardItem from './CardItem';
-import {connect} from 'react-redux';
-import {Table,Button,ButtonGroup,DropdownButton,MenuItem} from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Table, Button, ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
 
 
 class CardList extends Component {
-    constructor(props) {
-        super(props);
-        //let
-    }
+  constructor(props) {
+    super(props);
+        // let
+  }
 
 
-    static renderTable(cardItems) {
-        return (
+  static renderTable(cardItems) {
+    return (
             <Table striped hover responsive>
                 <thead>
                 <tr>
@@ -27,22 +27,22 @@ class CardList extends Component {
                 <tbody>{cardItems}</tbody>
             </Table>
 
-        )
+        );
+  }
 
-    }
-
-    render() {
-        let cardItems = [];
-        if (!this.props.cards)
-            return CardList.renderTable(cardItems);
-        else
+  render() {
+    let cardItems = [];
+    if (!this.props.cards)
+      return CardList.renderTable(cardItems);
+    else
             this.props.cards.forEach(card =>
                 cardItems.push(<CardItem card={card}
-                                         key={card.get('cardName')}
-                                         filterText = {this.props.filterText}/>)
+                  key={card.get('cardName')}
+                  filterText={this.props.filterText}
+                />)
             );
-        return CardList.renderTable(cardItems);
-    }
+    return CardList.renderTable(cardItems);
+  }
 }
 
 
