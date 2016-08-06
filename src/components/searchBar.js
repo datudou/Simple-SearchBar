@@ -2,33 +2,34 @@
  * Created by qianyiwang on 15/10/19.
  */
 
-import React, { Component, PropTypes } from 'react';
-import { Input } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { FormGroup, InputGroup, FormControl } from 'react-bootstrap';
 
 class SearchBar extends Component {
+
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    let filterText = e.target.value.toLowerCase().trim();
+    const filterText = e.target.value.toLowerCase().trim();
     this.props.onChange(filterText);
   }
 
   render() {
     return (
-            <form>
-                <Input
-                  type="text"
-                  placeholder="Search ..."
-                  ref="filterTextInput"
-                  value={this.props.filterText}
-                  onChange={this.handleChange.bind(this)}
-                  onKeyDown={this.onKeyDown}
-                />
-            </form>
-        );
+      <FormGroup>
+        <InputGroup>
+          <FormControl
+            type="text"
+            placeholder="Search ..."
+            onChange={this.handleChange}
+          />
+        </InputGroup>
+      </FormGroup>
+    );
   }
 }
-export default SearchBar;
 
+export default SearchBar;
