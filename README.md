@@ -5,6 +5,7 @@ A demo project for practise.
      react -> 15.3.0
      react-redux -> 4.0.0
      redux -> 3.0.4
+     express -> 4.14.0
 
 # TODO
 * ~~Add Backend server [use express.js]~~
