@@ -2,7 +2,7 @@
 A demo project for practise.
 
 # Dependency version
-     react -> 15.3.0
+     react -> 15.3.1
      react-redux -> 4.0.0
      redux -> 3.0.4
      express -> 4.14.0
