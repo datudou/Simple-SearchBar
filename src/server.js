@@ -4,14 +4,18 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const ejs = require('ejs')
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 8000;
 
 app.get('/', (req, res) => {
-  res.render('index')
-})
+  res.render('index');
+});
+
+app.get('/api/cards', (req, res) => {
+  res.json({ Curry: '20' });
+});
 
 // 设置views路径和模板
 app.set('views', './dist')

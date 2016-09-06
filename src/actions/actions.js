@@ -22,11 +22,9 @@ function receiveCardData(results) {
 
 export function filterInAllCards(starName) {
   return (dispatch, getState) => {
-    return fetch('https://leancloud.cn/1.1/classes/Card', {
+    return fetch('/api/cards', {
       method: 'get',
       headers: {
-        'X-LC-Id': 'W0pvfebRPNdnvf8NLAUdybJg',
-        'X-LC-Key': 'AUurht9oU6bDAWkoK66LrHtq',
         'Content-Type': 'application/json',
       },
     }).then(response => response.json())
@@ -38,11 +36,9 @@ export function filterInAllCards(starName) {
 
 export function fetchCardData() {
   return (dispatch, getState) => {
-    return fetch('https://leancloud.cn/1.1/classes/Card', {
+    return fetch('/api/cards', {
       method: 'get',
       headers: {
-        'X-LC-Id': 'W0pvfebRPNdnvf8NLAUdybJg',
-        'X-LC-Key': 'AUurht9oU6bDAWkoK66LrHtq',
         'Content-Type': 'application/json',
       },
     }).then(response => response.json())
@@ -51,4 +47,3 @@ export function fetchCardData() {
               dispatch(receiveCardData(json.results)); });
   };
 }
-
